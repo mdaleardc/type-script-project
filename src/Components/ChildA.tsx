@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
-
-import { UserName, fruitName } from "../App"
+import { UserName } from "../Contexts/UserName"
+import { UserAge } from "../Contexts/UserAge"
+ 
 
 const ChildA = () => {
   
   const {firstName, lastName} = useContext(UserName);
-  const {fruit, setFruit} = useContext(fruitName);
+  const {age, setAge} = useContext(UserAge);
   
   return (
     <>
-    <div className='border-[2px] text-white border-[#fff] m-[4px] bg-[#a34] h-[200px]'>
+    <div className='border-[2px] text-white border-[#fff] m-[4px] bg-[#a34] min-h-[130px]'>
     <h2 className='text-2xl text-[#00D4FF]'>Hello this is ChildA!</h2>
-    <p>My name is {firstName} {lastName}</p>
-    <p>My favorite fruit is {fruit}</p>
-    <button className='border-[3px] rounded-md' onClick={()=>setFruit("Mango")}>Change Fruite</button>
+    <p>First Name: {firstName}</p>
+    <p>Last Name: {lastName}</p>
+    <button className='bg-gray-900 rounded' onClick={()=>setAge(age + 1)}>Change Age</button>
     </div>
     </>
     )
